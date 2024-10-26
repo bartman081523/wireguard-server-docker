@@ -1,7 +1,6 @@
-version: "2.4"
 services:
   wireguard:
-    image: wireguard-docker-server:latest # Replace with your image name
+    image: wireguard-docker-server:latest
     container_name: wireguard
     cap_add:
       - NET_ADMIN

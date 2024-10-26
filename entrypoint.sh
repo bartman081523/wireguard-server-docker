@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Entrypoint script started"
+
 SERVER_PRIVATE_KEY=$(cat /config/wg-privatekey)
 SERVER_PUBLIC_KEY=$(cat /config/wg-publickey)
 CLIENT_PRIVATE_KEY=$(cat /config/client-privatekey)
@@ -30,8 +32,10 @@ AllowedIPs = 0.0.0.0/0
 PersistentKeepalive = 25
 EOF
 
-# Generate QR code
+
 qrencode -t png -o /config/wg0.png <(wg showconf wg0)
 
-# Start WireGuard
 exec wg-quick up wg0
+
+
+
