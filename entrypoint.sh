@@ -32,10 +32,8 @@ AllowedIPs = 0.0.0.0/0
 PersistentKeepalive = 25
 EOF
 
+# Generate QR code as text
+wg showconf wg0 | qrencode -t ansiutf8
 
-qrencode -t png -o /config/wg0.png <(wg showconf wg0)
-
+# Start WireGuard
 exec wg-quick up wg0
-
-
-
