@@ -1,0 +1,13 @@
+version: "2.4"
+services:
+  wireguard:
+    image: wireguard-docker-server:latest # Replace with your image name
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    ports:
+      - "51820:51820/udp"
+    volumes:
+      - ./config:/config
+    restart: always
